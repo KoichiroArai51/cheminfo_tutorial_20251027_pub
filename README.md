@@ -10,6 +10,12 @@
 #### *Please check network poricy of your organization if you would like to use your organization network.*
 #### *Proxy settings are required for git, wget, conda etc. We can not support your organization network settings.*
 #### **会社や大学のネットワークをご利用される場合プロキシー設定などをしていないと適切にパッケージのインストールができない可能性があります。Github、Conda、Pip、Wgetなど利用するものが問題なく通信できるか確認をお願いいたします。主催者側で参加される皆様の組織におけるネットワークポリシーに関する問題は対応できません。プロキシ関連の設定の情報を参考情報として最後に記載しておきます。**
+#### For Mac zsh users
+- 以下のコマンド例はBashでのテストをしました。Mac zsh環境で作業される場合Bashのコメントをうまく処理できない可能性があります。その場合以下のコマンドを実行してから作業して下さい。
+- (stack over flow)[https://stackoverflow.com/questions/11670935/comments-in-command-line-zsh]
+```zsh
+setopt interactivecomments
+```
 - Install [git](https://git-scm.com/downloads)
 - Gitのインストールをします。OSに応じて適宜コマンドを変更して下さい。
 ```sh
@@ -46,7 +52,7 @@ mamba install -c conda-forge notebook # if would like to use  jupyter notebook i
 mamba install -c conda-forge auroris polaris openpyxl gcsfs umap-learn ipywidgets
 mamba install -c conda-forge chemprop tensorboard bokeh
 mamba install -c conda-forge zarr"<3.0" # if your conda installed zarr >= 3.0
-pip install -U ray[tune]
+pip install -U 'ray[tune]'
 pip install hyperopt
 ```
 - Install MolE in another environmet
@@ -69,6 +75,17 @@ pip install -e .
 - Download pre-trained model(MolE_GaucaMol_27113.ckpt) checkpoint file from following URL. 
 - The size of this ckpt file is about 1GB. Please download the file in advance.[ckpt file link](https://codeocean.com/capsule/2105466/tree/v1/data/MolE_GuacaMol_27113.ckpt)
 
+## Installation test
+- To check the installation please run following command.
+```
+$ conda activate cbi2025
+$ python check_deps.py test1.py
+
+$ conda deactivate
+
+$ conda activate mole
+$ python check_deps.py test2.py
+```
 
 ## References and Links
 - [Chemprop: A Machine Learning Package for Chemical Property Prediction](https://pubs.acs.org/doi/10.1021/acs.jcim.3c01250)
