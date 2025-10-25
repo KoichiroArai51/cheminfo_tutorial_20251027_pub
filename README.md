@@ -56,7 +56,8 @@ pip install -U 'ray[tune]'
 pip install hyperopt
 ```
 - Install MolE in another environmet
-  - We have some issues for installation MolE to MacOS because some packages such as triton aren't supported MacOS. So we are planing to work with `chemprop` mainly.
+  - We have some issues for installation MolE to MacOS because some packages such as triton aren't supported MacOS. So we are planining to work with `chemprop` mainly.
+  - **NOTE**: Please comment out `triton==3.0.0` in requirements/main_3.10.txt or requirements/main_3.9.txt if you are a mac user. Because triton supports only Linux.
 ```
 # suitable python version is 3.9 or 3.10
 cd ~/your_own_path
@@ -74,7 +75,7 @@ pip install -r requirements/main_3.10_gpu.txt
 pip install -e .
 ```
 
-**NOTE**: If you are a mac user consider to use `PYTORCH_ENABLE_MPS_FALLBACK=1` as environmental variable to avoid issues between `torch` and M1 processors. You can do it by typing (following case is your terminal is `bash`):
+**NOTE**: If you are a mac user consider to use `PYTORCH_ENABLE_MPS_FALLBACK=1` as environmental variable to avoid issues between `torch` and M1 processors. You can do it by typing (following example is `bash` as a terminal):
 
 ```bash
 echo "export PYTORCH_ENABLE_MPS_FALLBACK=1" >> .bashrc
@@ -117,6 +118,13 @@ ChemProp: MIT, MolE: Attribution-NonCommercial 4.0 International
 
 ## Contact
 Please post question to (discussion)[https://github.com/cbi-society/cheminfo_tutorial_20251027_pub/discussions].
+
+## Checked OS
+- Following OS are testd 
+  - [x] Ubuntu 24.0
+  - [x] WSL (Ubuntu22.0)
+  - [] MacOS
+  - [] Windows 11
 
 ## Author
 - Taka@iwatobipen
