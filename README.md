@@ -18,40 +18,42 @@ setopt interactivecomments
 ```
 - Install [git](https://git-scm.com/downloads)
 - Gitのインストールをします。OSに応じて適宜コマンドを変更して下さい。
+- Following example code is used for Linux
 ```sh
-# Following example code is used for Linux
 apt-get install git
 ```
 - Get materials for the tutorial
 - 今回のチュートリアルで使うコードをGithubからCloneします。Cloneができない場合はZipファイルとして入手し、利用していただいても大丈夫です。
+- You can use git clone with SSH or Git CLI. Following code is an example.
 ```sh
-# you can use git clone with SSH or Git CLI
-# Following code is an example
 git clone https://github.com/cbi-society/cheminfo_tutorial_20251027_pub.git
 cd cheminfo_tutorial_20251027_pub 
 ```
 - Install [miniforge](https://github.com/conda-forge/miniforge).
 - After installing miniforge, mamba commad will be available. Please check more deitails in original [documentation](https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html)
 - Miniforgeをインストールします。既にご自身の環境下に同様のものをインストールされている場合はこの作業はスキップしていただいて構いません。mambaはcondaより高速に動作するので、condaしか使えない場合はmambaを使えるようにすることをお勧めいたします。
+- Following example code is used for Linux
 ```sh
-# Following example code is used for Linux
 curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
 bash Miniforge3-$(uname)-$(uname -m).sh
 ```
 - Make conda enviromnet for the tutorial
+- You can use your own favorite env name
 ```sh
-# you can use your own favorite env name
 conda create -n cbi2025 python=3.12
 ```
 - Install required packages
+- If you would like to use jupyter notebook, run `mamba install -c conda-forge notebook`
+- `zarr >= 3.0` cause error, so we should install zarr<3.0
+- You can check installed packegs like `$ conda list | grep zarr`
 ```sh
 conda activate cbi2025
 mamba install -c conda-forge datamol molfeat medchem splito
 mamba install -c conda-forge jupyterlab
-mamba install -c conda-forge notebook # if would like to use  jupyter notebook instead of jupyter-lab
+mamba install -c conda-forge notebook
 mamba install -c conda-forge auroris polaris openpyxl gcsfs umap-learn ipywidgets
 mamba install -c conda-forge chemprop tensorboard bokeh
-mamba install -c conda-forge zarr"<3.0" # if your conda installed zarr >= 3.0
+mamba install -c conda-forge zarr"<3.0"
 pip install -U 'ray[tune]'
 pip install hyperopt
 ```
@@ -86,7 +88,7 @@ echo "export PYTORCH_ENABLE_MPS_FALLBACK=1" >> .bashrc
 
 ## Installation test
 - To check the installation please run following command.
-```
+```sh
 $ conda activate cbi2025
 $ python check_deps.py test1.py
 
