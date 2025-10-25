@@ -123,8 +123,8 @@ Please post question to (discussion)[https://github.com/cbi-society/cheminfo_tut
 - Following OS are testd 
   - [x] Ubuntu 24.0
   - [x] WSL (Ubuntu22.0)
-  - [] MacOS
-  - [] Windows 11
+  - [ ] MacOS
+  - [ ] Windows 11
 
 ## Author
 - Taka@iwatobipen
