@@ -111,6 +111,7 @@ $ python check_deps.py test2.py
 
 ## Requirements
 Please check the documentation above.
+RDKit>= 2025.03.5 will be required for tutorial by Greg. CBI2025 conda environment might have current version of RDKit
 
 ## Contributing
 Please post issue if you find
