@@ -10,5 +10,4 @@ chemprop hpopt --data-path data.csv \
   --target-columns LOG_HLM_CLint LOG_RLM_CLint LOG_MDR1-MDCK_ER LOG_HPPB LOG_RPPB LOG_SOLUBILITY \
   --split-type random \
   --search-parameter-keywords depth ffn_num_layers message_hidden_dim \
-  --raytune-num-gpus 1 \
   --hpopt-save-dir hpopt_data
